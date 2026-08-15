@@ -1,0 +1,947 @@
+<!doctype html><html lang='pt-BR'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+            <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'>
+            <style>*{box-sizing:border-box;}body{padding:1rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;}:root {
+            --color-primary: #2C4A5E;
+            --color-secondary-gold: #B8941F;
+            --color-highlight-gold: #D4AF37;
+            --color-icon-blue: #7FA8C8;
+            --color-light-blue: #A8C8D8;
+            --color-text-dark: #1A1A1A;
+            --color-text-medium: #4A5568;
+            --color-text-light: #718096;
+            --bg-glass-light: rgba(255, 255, 255, 0.88);
+            --bg-glass-medium: rgba(255, 255, 255, 0.72);
+
+            --font-title: 'Playfair Display', serif;
+            --font-decorative: 'Cormorant Garamond', serif;
+            --font-body: 'Montserrat', sans-serif;
+            
+            /* ═══════════════════════════════════════════════════
+               IMAGEM DE FUNDO - Edite esta URL para trocar
+               ═══════════════════════════════════════════════════ */
+            --background-image: url('https://raw.githubusercontent.com/marciobignon/Curso-Liberta-o-da-Mente--Cura-Interior/67f4e5cc8344c7910a4d3785fc2929b90c3edc2f/fundo%20site%20curso%20liberta%C3%A7%C3%A3o%20da%20mente.png');
+        }
+
+        /* --- Base & Reset --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text-medium);
+            background-image: var(--background-image);
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        /* --- Animation --- */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.9s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.9s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* --- Glass Panel Style --- */
+        .glass-panel {
+            background-color: var(--bg-glass-light);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        /* --- Header --- */
+        .header {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: var(--font-title);
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            color: var(--color-primary);
+            line-height: 1.1;
+        }
+
+        .header h2 {
+            font-family: var(--font-decorative);
+            font-weight: 500;
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            color: var(--color-text-medium);
+            margin-top: 8px;
+        }
+
+        .header h3 {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: clamp(0.8rem, 1vw, 1rem);
+            color: var(--color-secondary-gold);
+            margin-top: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 40px 0 60px;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hero-image-wrapper { 
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ═══════════════════════════════════════════════════
+           IMAGEM DO LIVRO - MAIOR AINDA (quase ocupando toda a coluna)
+           ═══════════════════════════════════════════════════ */
+        .hero-image {
+            max-width: 750px;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 4;
+            border-radius: 8px;
+            box-shadow: -30px 40px 80px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .hero-image:hover {
+            transform: translateY(-15px);
+            box-shadow: -30px 55px 90px rgba(0,0,0,0.35);
+        }
+
+        .hero-content {
+            padding: clamp(2rem, 4vw, 3.5rem);
+        }
+
+        .hero-content h2 {
+            font-family: var(--font-title);
+            font-size: clamp(1.3rem, 2.8vw, 2.2rem);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-primary);
+        }
+        
+        .hero-content p {
+            font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+            line-height: 1.8;
+            margin: 20px 0 28px;
+            max-width: 55ch;
+        }
+
+        .cta-button {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: clamp(0.9rem, 1.3vw, 1.125rem);
+            text-decoration: none;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 999px;
+            background: linear-gradient(45deg, var(--color-highlight-gold), var(--color-secondary-gold));
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-align: center;
+        }
+        
+        .cta-button.pulse { animation: pulse-gold 2.5s infinite; }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button .ripple {
+            position: absolute; border-radius: 50%;
+            transform: scale(0); animation: ripple 0.6s linear;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* --- Section Shared Styles --- */
+        .section { padding: 60px 0; }
+        .section-title {
+            text-align: center; 
+            font-family: var(--font-title);
+            font-size: clamp(1.6rem, 4vw, 2.5rem); 
+            color: var(--color-primary);
+            margin-bottom: 48px;
+        }
+        .section-title.italic { font-style: italic; }
+        .section-subtitle {
+            text-align: center; 
+            font-family: var(--font-body); 
+            font-weight: 600;
+            letter-spacing: 2px; 
+            text-transform: uppercase;
+            color: var(--color-secondary-gold); 
+            margin-bottom: 8px;
+            font-size: clamp(0.8rem, 1vw, 1rem);
+        }
+        .divider {
+            height: 2px; 
+            width: 80px; 
+            margin: 24px auto;
+            background: linear-gradient(90deg, var(--color-highlight-gold), var(--color-secondary-gold));
+        }
+        
+        /* --- Generic Content Section --- */
+        .content-section .glass-panel {
+            padding: clamp(1.5rem, 5vw, 4rem); 
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+        .content-section p {
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem); 
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        .content-section b { color: var(--color-primary); }
+        .content-section i { color: var(--color-secondary-gold); }
+
+        .highlight-block {
+            padding: 24px; 
+            margin: 32px 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(44, 74, 94, 0.05));
+            border-left: 4px solid var(--color-highlight-gold); 
+            border-radius: 0 8px 8px 0;
+        }
+        .highlight-block p { margin-bottom: 0; }
+
+        /* --- Author Section --- */
+        .author-grid {
+            display: grid; 
+            grid-template-columns: 300px 1fr;
+            gap: 40px; 
+            align-items: flex-start;
+            max-width: 950px; 
+            margin: 0 auto;
+        }
+        
+        /* ═══════════════════════════════════════════════════
+           FOTO DA AUTORA - Edite a URL e dimensões abaixo
+           Dimensão recomendada: 400x400px (quadrada)
+           ═══════════════════════════════════════════════════ */
+        .author-photo {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            object-fit: cover;
+        }
+        .author-credentials {
+            list-style: none; 
+            padding-left: 20px; 
+            margin: 24px 0;
+        }
+        .author-credentials li {
+            position: relative; 
+            margin-bottom: 12px;
+            font-size: clamp(0.9rem, 1vw, 1rem);
+        }
+        .author-credentials li::before {
+            content: '✓'; 
+            position: absolute; 
+            left: -20px;
+            color: var(--color-secondary-gold);
+        }
+
+        .author-grid h3 {
+            font-family: var(--font-title); 
+            font-size: clamp(1.5rem, 2.5vw, 2rem); 
+            color: var(--color-primary);
+        }
+
+        .author-grid h4 {
+            font-family: var(--font-title); 
+            font-size: clamp(1.2rem, 2vw, 1.5rem); 
+            color: var(--color-primary); 
+            margin-top: 32px;
+        }
+
+        /* --- Methodology Section --- */
+        .methodology-list {
+            display: flex; 
+            flex-direction: column; 
+            gap: 24px;
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+        .methodology-item {
+            display: flex; 
+            align-items: flex-start; 
+            gap: 24px;
+            background-color: var(--bg-glass-medium); 
+            padding: 24px;
+            border-radius: 12px; 
+            border-left: 4px solid var(--color-secondary-gold);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .methodology-item:hover {
+            transform: translateX(10px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.07);
+        }
+        .methodology-icon {
+            flex-shrink: 0; 
+            width: 48px; 
+            height: 48px; 
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-icon-blue), var(--color-light-blue));
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+        .methodology-icon svg { 
+            width: 28px; 
+            height: 28px; 
+            color: var(--color-primary); 
+        }
+        .methodology-title {
+            font-family: var(--font-title); 
+            font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+            color: var(--color-primary); 
+            margin-bottom: 8px;
+        }
+        .methodology-item p {
+            font-size: clamp(0.9rem, 1vw, 1rem);
+        }
+        
+        /* --- Bonuses Section --- */
+        .bonuses-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 32px; 
+        }
+        .bonus-card {
+            padding: 32px; 
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .bonus-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
+        }
+        
+        /* ═══════════════════════════════════════════════════
+           IMAGENS DOS BRINDES - Edite as URLs abaixo
+           Dimensão recomendada: 400x400px (quadrada)
+           ═══════════════════════════════════════════════════ */
+        .bonus-image-wrapper {
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto 24px;
+            border-radius: 12px;
+            background-color: var(--color-light-blue);
+            overflow: hidden;
+        }
+        .bonus-image-wrapper img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block;
+        }
+        .bonus-label {
+            display: inline-block; 
+            padding: 6px 16px; 
+            border-radius: 999px;
+            background: linear-gradient(45deg, var(--color-highlight-gold), var(--color-secondary-gold));
+            color: white; 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            margin-bottom: 16px;
+        }
+        .bonus-title {
+            font-family: var(--font-title); 
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            color: var(--color-primary); 
+            margin-bottom: 8px;
+        }
+        .bonus-subtitle {
+            font-family: var(--font-decorative); 
+            font-style: italic;
+            font-size: clamp(1rem, 1.5vw, 1.2rem); 
+            color: var(--color-primary);
+        }
+
+        /* --- Pricing Section --- */
+        .pricing-section {
+            max-width: 700px; 
+            margin: 0 auto; 
+            padding: clamp(2rem, 5vw, 4rem);
+            text-align: center;
+        }
+        .pricing-subtitle { 
+            font-size: clamp(1rem, 1.2vw, 1.2rem); 
+            color: var(--color-text-light); 
+            margin-bottom: 16px; 
+        }
+        .old-price { 
+            text-decoration: line-through; 
+            opacity: 0.7; 
+        }
+        .new-price {
+            font-family: var(--font-title); 
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700; 
+            color: var(--color-primary); 
+            line-height: 1; 
+            margin-bottom: 16px;
+        }
+        .new-price span { 
+            font-size: 0.4em; 
+            vertical-align: super; 
+            margin-right: 0.1em; 
+        }
+        .payment-note { 
+            font-size: clamp(0.9rem, 1vw, 1rem); 
+            color: var(--color-text-medium); 
+            margin-bottom: 32px; 
+        }
+
+        /* --- Final CTA Section --- */
+        .final-cta-section {
+            padding: clamp(2rem, 5vw, 60px); 
+            background: linear-gradient(135deg, var(--color-primary), var(--color-text-dark));
+            border-radius: 24px; 
+            text-align: center; 
+            color: white;
+            position: relative; 
+            overflow: hidden;
+        }
+        .final-cta-section p {
+            font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+        }
+        .final-cta-section .cta-button { 
+            transform: scale(1.1); 
+        }
+        .final-cta-quote {
+            font-family: var(--font-decorative); 
+            font-style: italic; 
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            max-width: 50ch; 
+            margin: 40px auto 0; 
+            opacity: 0.8;
+        }
+        .final-cta-signature { 
+            margin-top: 24px; 
+            font-weight: 600; 
+        }
+        .final-cta-signature span { 
+            display: block; 
+            font-weight: 400; 
+            font-size: 0.9rem; 
+            opacity: 0.8; 
+        }
+
+        /* --- Footer --- */
+        .footer { 
+            padding: 40px 0; 
+            text-align: center; 
+        }
+        .footer-content {
+            display: inline-block; 
+            padding: 12px 24px; 
+            border-radius: 999px;
+            font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+        }
+        .footer-content b { color: var(--color-secondary-gold); }
+
+        /* ═══════════════════════════════════════════════════
+           RESPONSIVIDADE - Media Queries
+           ═══════════════════════════════════════════════════ */
+
+        /* Tablets e telas médias */
+        @media (max-width: 968px) {
+            .hero-grid { 
+                grid-template-columns: 1fr; 
+                gap: 30px;
+            }
+            .hero-image-wrapper { 
+                margin-bottom: 20px; 
+                order: -1; 
+            }
+            .hero-image {
+                max-width: 500px;
+            }
+            .author-grid { 
+                grid-template-columns: 1fr; 
+                text-align: center;
+            }
+            .author-photo {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+            .author-credentials { 
+                text-align: left; 
+                display: inline-block; 
+            }
+            .bonuses-grid { 
+                grid-template-columns: 1fr; 
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Celulares grandes e tablets pequenos */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 20px 0 40px;
+            }
+            .hero-content {
+                padding: 1.5rem;
+            }
+            .header {
+                padding: 24px 0;
+            }
+            .section {
+                padding: 40px 0;
+            }
+            .methodology-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 20px;
+            }
+            .methodology-item:hover {
+                transform: translateY(-5px);
+            }
+            .methodology-icon {
+                width: 40px;
+                height: 40px;
+            }
+            .methodology-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+            .final-cta-section .cta-button {
+                transform: scale(1);
+            }
+            .final-cta-section {
+                padding: 1.5rem;
+            }
+            .bonus-card {
+                padding: 24px;
+            }
+            .bonus-image-wrapper {
+                max-width: 200px;
+            }
+        }
+
+        /* Celulares pequenos */
+        @media (max-width: 480px) {
+            html { 
+                font-size: 14px; 
+            }
+            .container { 
+                padding: 0 16px; 
+            }
+            .glass-panel, 
+            .content-section .glass-panel { 
+                padding: 1.25rem; 
+            }
+            .hero-image {
+                max-width: 340px;
+            }
+            .hero-content {
+                padding: 1.25rem;
+            }
+            .hero-content h2 {
+                font-size: 1.2rem;
+            }
+            .hero-content p {
+                font-size: 0.9rem;
+                margin: 16px 0 24px;
+            }
+            .cta-button {
+                padding: 14px 24px;
+                font-size: 0.85rem;
+                width: 100%;
+            }
+            .pricing-section {
+                padding: 1.5rem;
+            }
+            .new-price {
+                font-size: 2.2rem;
+            }
+            .author-photo {
+                max-width: 180px;
+            }
+            .author-grid h3 {
+                font-size: 1.3rem;
+            }
+            .section-title {
+                font-size: 1.4rem;
+                margin-bottom: 32px;
+            }
+            .final-cta-section .cta-button {
+                width: 100%;
+            }
+        }
+
+        /* Telas muito pequenas (ex: celulares em modo paisagem) */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                padding: 20px 0;
+            }
+            .hero-grid {
+                gap: 20px;
+            }
+            .hero-image {
+                max-width: 300px;
+            }
+            .hero-content {
+                padding: 1rem;
+            }
+            .hero-content p {
+                margin: 12px 0 16px;
+            }
+        }</style></head><body><meta charset="UTF-8" class="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" class="">
+    <title class="">Formação em Libertação da Mente &amp; Cura Interior | Denya Maria</title>
+    <meta name="description" content="Jornada de 40 dias de Renovação da Mente e Reestruturação Cognitivo-Comportamental com a Educadora Cristã Denya Maria." class="">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" class="">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" class="">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" class="">
+
+    
+
+
+
+    <header class="header container animate-on-scroll visible">
+        <h1 class="">FORMAÇÃO TÉCNICA EM LIBERTAÇÃO DA MENTE &amp; CURA INTERIOR</h1>
+        <h2 class="">Volume I: Nível Básico ao Intermediário</h2>
+        <h3 class="">Educadora Cristã Cognitivo-Comportamental: Denya Maria</h3>
+    </header>
+
+    <main class="">
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-image-wrapper animate-on-scroll visible">
+                        <!-- ════════════════════════════════════════════════════════════════ -->
+                        <!-- IMAGEM DO LIVRO - TAMANHO MÁXIMO para destacar o produto       -->
+                        <!-- ════════════════════════════════════════════════════════════════ -->
+                        <img src="https://github.com/marciobignon/Curso-Liberta-o-da-Mente--Cura-Interior/raw/263f1ee0c6ff5a3a29abc4a653664ed89ad42755/livro%20curso%20liberta%C3%A7%C3%A3o%20da%20mente%202.png" alt="Capa do livro Libertação da Mente e a Cura Interior" class="hero-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display:none; padding:60px 20px; background:#2C4A5E; color:white; border-radius:8px; max-width:450px; margin:0 auto; text-align:center;" class="">
+                            <p style="color:white; margin-bottom:10px;" class="">📚</p>
+                            <p style="color:white; font-size:0.9rem;" class="">Imagem do livro não disponível</p>
+                            <p style="color:rgba(255,255,255,0.6); font-size:0.8rem;" class="">Verifique o link da imagem</p>
+                        </div>
+                    </div>
+                    <div class="hero-content glass-panel animate-on-scroll visible" style="animation-delay: 0.2s;">
+                        <h2 class="">A PROMESSA PRINCIPAL</h2>
+                        <p class="">A CIÊNCIA E A PALAVRA DE DEUS EM SUA LITERALIDADE HARMONIZAM-SE NA MAIOR DESCOBERTA DA HISTÓRIA: <b class="">VOCÊ NÃO PRECISA SER ESCRAVA DOS PADRÕES DE DOR DA SUA MENTE.</b></p>
+                        <p class="">Diga adeus ao caos emocional, cure o pânico invisível e as dores do "mal do século" e assuma o autogoverno do seu córtex pré-frontal através de uma jornada de consagração e prática pedagógica de 40 dias de Renovação da Mente e Reestruturação Cognitivo-Comportamental.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="convite" class="section content-section">
+            <div class="container">
+                <div class="glass-panel animate-on-scroll visible">
+                    <h2 class="section-title italic">O Convite da Sua Educadora</h2>
+                    <p class=""><b class="">Querida irmã,</b></p>
+                    <p class="">Se você chegou até esta página, não foi por acaso ou por um algoritmo digital instável. O seu coração está faminto por algo muito mais profundo: <i class="">bem-estar real, cura interior, autocuidado espiritual e a plenitude do design original que Deus desenhou para você.</i></p>
+                    <p class="">Eu quero lhe dizer, com a certeza de quem estuda a biologia humana e vive o poder do Logos (Palavra de Deus): a sua transformação definitiva é possível.</p>
+                    <p class="">A metamorfose que você tanto busca não acontece por meio de fórmulas mágicas, desabafos emocionais rasos ou leituras superficiais. Ela acontece pela renovação ativa da mente, conforme o apóstolo Paulo nos instruiu em Romanos 12:2:</p>
+                    <div class="highlight-block">
+                        <p class=""><i class="">"E não vos conformeis com este mundo, mas transformai-vos pela renovação da vossa mente, para que experimenteis qual seja a boa, agradável e perfeita vontade de Deus."</i></p>
+                    </div>
+                    <p class="">O alicerce inabalável desta Formação é a Palavra de Deus literal. Aqui, não trabalhamos com achismos, misticismo, heresias ou interpretações subjetivas. Olhamos para o texto sagrado em sua literalidade factual e gramatical para aplicar o Autoevangelho: a verdade de Jesus direcionada com técnica, rigor científico e intenção cirúrgica à sua própria biologia e história, transformando o desejo de mudança em realidade cognitiva.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="autora" class="section">
+            <div class="container">
+                <h2 class="section-title italic animate-on-scroll visible">Quem é a sua Educadora?</h2>
+                <div class="glass-panel animate-on-scroll visible" style="padding: clamp(1.5rem, 5vw, 4rem);">
+                    <div class="author-grid">
+                        <!-- ════════════════════════════════════════ -->
+                        <!-- FOTO DA AUTORA - Substitua a URL abaixo -->
+                        <!-- ════════════════════════════════════════ -->
+                        <img src="https://github.com/marciobignon/Curso-Liberta-o-da-Mente--Cura-Interior/blob/main/denya_maria.png?raw=true" alt="Foto de Denya Maria" class="author-photo">
+                        <div class="">
+                            <h3 class="">Muito prazer, eu sou Denya Maria.</h3>
+                            <p class="">Este método é o resultado factual da minha própria história de superação e dos meus 51 anos de vida. Para construí-lo, uni três décadas de experiência prática no setor de bem-estar e estética integrativa às minhas formações e caminhada:</p>
+                            <ul class="author-credentials">
+                                <li class=""><b class="">Graduada em Letras:</b> O poder da palavra escrita e da concordância cognitiva.</li>
+                                <li class=""><b class="">Teóloga de Exegese e Hermenêutica:</b> A profundidade e a precisão do texto literal.</li>
+                                <li class=""><b class="">Biomédica em Formação:</b> A ciência das vias neurais, do cérebro e da biologia humana.</li>
+                                <li class=""><b class="">17 anos de caminhada com Deus</b> no altar e na palavra literal.</li>
+                            </ul>
+                            <h4 class="">Eu já estive na beira do caminho...</h4>
+                            <p class="">Há 17 anos, eu mesma fui liberta de diversos tipos de pânico e transtornos emocionais graves. Minha psicóloga da época chegou a me diagnosticar com o "pânico da paz" — tamanho era o meu nível de alerta, inflamação, perturbação interior e desordem emocional crônica.</p>
+                            <p class="">Mas a Palavra me refez de forma factual. Hoje, curada para consolar com a mesma consolação que recebi de Cristo, eu sei que a libertação não é um evento místico isolado ou mágico, mas sim um processo educativo. Um passo a passo intencional e consciente na construção do seu alicerce de paz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="protocolo" class="section content-section">
+            <div class="container">
+                <div class="glass-panel animate-on-scroll visible">
+                    <p class="section-subtitle">O PROTOCOLO DOS 40 DIAS</p>
+                    <h2 class="section-title">A Sua Jornada de Alfabetização Emocional</h2>
+                    <p class="">Este primeiro volume compreende o seu ciclo de Alfabetização Emocional. Assim como Jesus venceu o deserto em 40 dias, você passará por um período intensivo de consagração, desintoxicação mental e reeducação da alma.</p>
+                    <p class="">Este é o tempo biológico, cognitivo e espiritual necessário para desconstruir fortalezas emocionais, quebrar paradigmas limitantes e estabelecer novos caminhos neurais de paz.</p>
+                    <p class="">Dedicando apenas alguns minutos diários no secreto com o Pai, meditando na literalidade das Escrituras e aplicando os exercícios, você sairá da passividade para assumir a autoria da sua própria mente.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="metodologia" class="section">
+            <div class="container">
+                <p class="section-subtitle animate-on-scroll visible">A METODOLOGIA DA FORMAÇÃO</p>
+                <h2 class="section-title animate-on-scroll visible">Como a Transformação Acontece</h2>
+                <div class="methodology-list">
+                    <div class="methodology-item animate-on-scroll visible">
+                        <div class="methodology-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" class=""></path>
+                            </svg>
+                        </div>
+                        <div class="">
+                            <h3 class="methodology-title">Aulas Profundas em Forma de Devocionais</h3>
+                            <p class="">Conteúdos pedagógicos diários escritos em linguagem acolhedora para desarmar o medo e ativar sua real identidade.</p>
+                        </div>
+                    </div>
+                    <div class="methodology-item animate-on-scroll visible" style="animation-delay: 0.1s;">
+                        <div class="methodology-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" class=""></path>
+                            </svg>
+                        </div>
+                        <div class="">
+                            <h3 class="methodology-title">Fundamentação Bíblica + Reestruturação Cognitiva</h3>
+                            <p class="">A fusão perfeita entre a neuroplasticidade científica e a verdade factual das Escrituras Sagradas para remodelar pensamentos disfuncionais.</p>
+                        </div>
+                    </div>
+                    <div class="methodology-item animate-on-scroll visible" style="animation-delay: 0.2s;">
+                        <div class="methodology-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" class=""></path>
+                            </svg>
+                        </div>
+                        <div class="">
+                            <h3 class="methodology-title">Exercício "Arrumando a Bagunça"</h3>
+                            <p class="">Uma ferramenta cirúrgica para identificar mentiras e registros antigos e substituí-los por decretos de autoridade baseados na Verdade.</p>
+                        </div>
+                    </div>
+                    <div class="methodology-item animate-on-scroll visible" style="animation-delay: 0.3s;">
+                        <div class="methodology-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z" class=""></path>
+                            </svg>
+                        </div>
+                        <div class="">
+                            <h3 class="methodology-title">Escrita Pedagógica e Manual</h3>
+                            <p class="">O ato científico de registrar seus pensamentos no papel, ativando áreas cerebrais de aprendizado e memória que as telas jamais alcançarão.</p>
+                        </div>
+                    </div>
+                    <div class="methodology-item animate-on-scroll visible" style="animation-delay: 0.4s;">
+                        <div class="methodology-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" class=""></path>
+                            </svg>
+                        </div>
+                        <div class="">
+                            <h3 class="methodology-title">Audição Cognitiva</h3>
+                            <p class="">Uma técnica exclusiva de biofeedback espiritual. Ao ler seus exercícios em voz alta, você utiliza a sua própria voz para selar a cura no seu sistema límbico.</p>
+                        </div>
+                    </div>
+                    <div class="methodology-item animate-on-scroll visible" style="animation-delay: 0.5s;">
+                        <div class="methodology-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" class=""></path>
+                            </svg>
+                        </div>
+                        <div class="">
+                            <h3 class="methodology-title">Orações Específicas de Posicionamento</h3>
+                            <p class="">Decretos e alinhamentos espirituais para firmar sua posição de filha amada e governante do seu território mental.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bonuses" class="section">
+            <div class="container">
+                <h2 class="section-title italic animate-on-scroll visible">Brindes Exclusivos</h2>
+                <div class="divider" style="margin-bottom: 48px;"></div>
+                <div class="bonuses-grid">
+                    <div class="bonus-card glass-panel animate-on-scroll visible" style="animation-delay: 0.1s;">
+                        <div class="bonus-image-wrapper">
+                            <img src="https://github.com/marciobignon/Curso-Liberta-o-da-Mente--Cura-Interior/blob/main/cart%C3%A3o%20ora%C3%A7%C3%A3o%20-%20curso%20liberta%C3%A7%C3%A3o%20da%20mente.jpg?raw=true" alt="Cartões de Orações" class="">
+                        </div>
+                        <div class="bonus-label">🃏 Cards de oração</div>
+                        <h3 class="bonus-title">15 Cartões de Orações</h3>
+                        <p class="bonus-subtitle">Para seu crescimento Espiritual — imprimir</p>
+                    </div>
+                    <div class="bonus-card glass-panel animate-on-scroll visible" style="animation-delay: 0.2s;">
+                        <div class="bonus-image-wrapper">
+                            <img src="https://github.com/marciobignon/Curso-Liberta-o-da-Mente--Cura-Interior/blob/main/marcador%20-%20curso%20liberta%C3%A7%C3%A3o%20da%20mente.jpg?raw=true" alt="Marcador de Bíblia" class="">
+                        </div>
+                        <div class="bonus-label">🔖 Marcador</div>
+                        <h3 class="bonus-title">Marcador de Bíblia</h3>
+                        <p class="bonus-subtitle">Para inspirar sua leitura — imprimir</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="preco" class="section">
+            <div class="container">
+                <div class="pricing-section glass-panel animate-on-scroll visible">
+                    <h2 class="section-title italic">Garanta o seu Acesso Imediato</h2>
+                    <div class="divider"></div>
+                    <p class="pricing-subtitle">De <span class="old-price">R$ 197,00</span> por apenas:</p>
+                    <div class="new-price">
+                        <span class="">R$</span> 87,00
+                    </div>
+                    <p class="payment-note">Pagamento único via PIX ou Cartão de Crédito à vista ou parcelado</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="comprar" class="section">
+            <div class="container">
+                <div class="final-cta-section animate-on-scroll visible">
+                    <p class="">O seu período de 40 dias começa agora. Não adie mais a sua paz.</p>
+                    <p style="max-width: 60ch; margin: 1rem auto 2rem;" class="">Este não é apenas um caderno de leitura passiva; é a sua Formação Técnica para a liberdade onde você é ativa e protagonista de seu próprio memorial. Tenha sempre em mãos a sua Bíblia, o seu manual, caderno e sua caneta.</p>
+                    <a class="cta-button pulse final-cta-button" href="https://pay.kiwify.com.br/5vc7d61">QUERO ADQUIRIR MEU CADERNO DE ATIVAÇÃO</a>
+                    <p class="final-cta-quote">"A glória de Deus é ocultar um assunto, mas a glória dos reis é investigar esse assunto." — Provérbios 25:2 (NAA)</p>
+                    <p class="final-cta-signature">Vamos juntas, em nome de Jesus!<br class=""><span class="">Denya Maria, Educadora Cristã </span></p>
+<br class=""><span class="">Suporte Whatsapp 22 99710-7087 <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Botão WhatsApp - Canal TI</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+	<style>
+		.whatsapp-link {
+			position: fixed;
+			width: 60px;
+			height: 60px;
+			bottom: 40px;
+			right: 40px;
+			background-color: #25d366;
+			color: #fff;
+			border-radius: 50px;
+			text-align: center;
+			font-size: 30px;
+			box-shadow: 1px 1px 2px #888;
+			z-index: 1000;
+		}
+
+		.fa-whatsapp {
+			margin-top: 16px;
+		}
+	</style>
+</head>
+<body>
+	<a class="whatsapp-link" href="https://web.whatsapp.com/send?phone=5522997107087 " target="_blank">
+		<i class="fa fa-whatsapp"></i>
+	</a>
+</body>
+</html></span></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content glass-panel">
+                <span class="">© 2026 <b class="">Denya Maria</b> • Todos os direitos reservados</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animação de scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+            // Efeito ripple nos botões CTA - sem bloquear o redirecionamento
+            document.querySelectorAll('.cta-button').forEach(button => {
+                button.addEventListener('click', function (e) {
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple');
+                    const rect = e.target.getBoundingClientRect();
+                    ripple.style.left = (e.clientX - rect.left) + 'px';
+                    ripple.style.top = (e.clientY - rect.top) + 'px';
+                    this.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+        });
+    </script></body></html>
