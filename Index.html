@@ -1,12 +1,20 @@
 <!doctype html>
-<html lang='pt-BR'>
+<html lang="pt-BR">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width,initial-scale=1'>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa da Renovação da Mente - MRM | Denya Maria</title>
+    <meta name="description" content="Jornada de 40 dias de Renovação da Mente e Reestruturação Cognitiva com a Educadora Cristã Denya Maria.">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        *{box-sizing:border-box;}
-        body{padding:1rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;}
         :root {
             --color-primary: #2C4A5E;
             --color-secondary-gold: #B8941F;
@@ -22,7 +30,7 @@
             --font-title: 'Playfair Display', serif;
             --font-decorative: 'Cormorant Garamond', serif;
             --font-body: 'Montserrat', sans-serif;
-            
+
             /* ═══════════════════════════════════════════════════
                IMAGEM DE FUNDO - Edite esta URL para trocar
                ═══════════════════════════════════════════════════ */
@@ -60,9 +68,7 @@
             padding: 0 24px;
         }
 
-        p {
-            line-height: 1.7;
-        }
+        p { line-height: 1.7; }
 
         /* --- Animation --- */
         .animate-on-scroll {
@@ -70,23 +76,19 @@
             transform: translateY(35px);
             transition: opacity 0.9s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.9s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
-
         .animate-on-scroll.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
         @keyframes pulse-gold {
-            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            0%   { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70%  { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
             100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
-        
+
         @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
+            to { transform: scale(4); opacity: 0; }
         }
 
         /* --- Glass Panel Style --- */
@@ -104,14 +106,12 @@
             padding: 40px 0;
             text-align: center;
         }
-
         .header h1 {
             font-family: var(--font-title);
             font-size: clamp(1.8rem, 4vw, 3rem);
             color: var(--color-primary);
             line-height: 1.1;
         }
-
         .header h2 {
             font-family: var(--font-decorative);
             font-weight: 500;
@@ -119,7 +119,6 @@
             color: var(--color-text-medium);
             margin-top: 8px;
         }
-
         .header h3 {
             font-family: var(--font-body);
             font-weight: 500;
@@ -131,10 +130,8 @@
         }
 
         /* --- Hero Section --- */
-        .hero {
-            padding: 40px 0 60px;
-        }
-        
+        .hero { padding: 40px 0 60px; }
+
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -142,7 +139,7 @@
             gap: 20px;
         }
 
-        .hero-image-wrapper { 
+        .hero-image-wrapper {
             text-align: center;
             display: flex;
             justify-content: center;
@@ -163,7 +160,6 @@
             object-fit: cover;
             display: block;
         }
-        
         .hero-image:hover {
             transform: translateY(-15px);
             box-shadow: -30px 55px 90px rgba(0,0,0,0.35);
@@ -172,7 +168,6 @@
         .hero-content {
             padding: clamp(2rem, 4vw, 3.5rem);
         }
-
         .hero-content h2 {
             font-family: var(--font-title);
             font-size: clamp(1.3rem, 2.8vw, 2.2rem);
@@ -180,7 +175,6 @@
             letter-spacing: 1px;
             color: var(--color-primary);
         }
-        
         .hero-content p {
             font-size: clamp(0.95rem, 1.3vw, 1.05rem);
             line-height: 1.8;
@@ -205,7 +199,6 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             text-align: center;
         }
-        
         .cta-button.pulse { animation: pulse-gold 2.5s infinite; }
 
         .cta-button:hover {
@@ -214,46 +207,51 @@
         }
 
         .cta-button .ripple {
-            position: absolute; border-radius: 50%;
-            transform: scale(0); animation: ripple 0.6s linear;
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
             background-color: rgba(255, 255, 255, 0.7);
         }
 
         /* --- Section Shared Styles --- */
         .section { padding: 60px 0; }
+
         .section-title {
-            text-align: center; 
+            text-align: center;
             font-family: var(--font-title);
-            font-size: clamp(1.6rem, 4vw, 2.5rem); 
+            font-size: clamp(1.6rem, 4vw, 2.5rem);
             color: var(--color-primary);
             margin-bottom: 48px;
         }
         .section-title.italic { font-style: italic; }
+
         .section-subtitle {
-            text-align: center; 
-            font-family: var(--font-body); 
+            text-align: center;
+            font-family: var(--font-body);
             font-weight: 600;
-            letter-spacing: 2px; 
+            letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--color-secondary-gold); 
+            color: var(--color-secondary-gold);
             margin-bottom: 8px;
             font-size: clamp(0.8rem, 1vw, 1rem);
         }
+
         .divider {
-            height: 2px; 
-            width: 80px; 
+            height: 2px;
+            width: 80px;
             margin: 24px auto;
             background: linear-gradient(90deg, var(--color-highlight-gold), var(--color-secondary-gold));
         }
-        
+
         /* --- Generic Content Section --- */
         .content-section .glass-panel {
-            padding: clamp(1.5rem, 5vw, 4rem); 
-            max-width: 900px; 
+            padding: clamp(1.5rem, 5vw, 4rem);
+            max-width: 900px;
             margin: 0 auto;
         }
         .content-section p {
-            font-size: clamp(0.95rem, 1.5vw, 1.1rem); 
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
             line-height: 1.8;
             margin-bottom: 24px;
         }
@@ -261,24 +259,24 @@
         .content-section i { color: var(--color-secondary-gold); }
 
         .highlight-block {
-            padding: 24px; 
+            padding: 24px;
             margin: 32px 0;
             background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(44, 74, 94, 0.05));
-            border-left: 4px solid var(--color-highlight-gold); 
+            border-left: 4px solid var(--color-highlight-gold);
             border-radius: 0 8px 8px 0;
         }
         .highlight-block p { margin-bottom: 0; }
 
         /* --- Author Section --- */
         .author-grid {
-            display: grid; 
+            display: grid;
             grid-template-columns: 300px 1fr;
-            gap: 40px; 
+            gap: 40px;
             align-items: flex-start;
-            max-width: 950px; 
+            max-width: 950px;
             margin: 0 auto;
         }
-        
+
         /* ═══════════════════════════════════════════════════
            FOTO DA AUTORA - Edite a URL e dimensões abaixo
            Dimensão recomendada: 400x400px (quadrada)
@@ -292,99 +290,137 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             object-fit: cover;
         }
+
         .author-credentials {
-            list-style: none; 
-            padding-left: 20px; 
+            list-style: none;
+            padding-left: 20px;
             margin: 24px 0;
         }
         .author-credentials li {
-            position: relative; 
+            position: relative;
             margin-bottom: 12px;
             font-size: clamp(0.9rem, 1vw, 1rem);
         }
         .author-credentials li::before {
-            content: '✓'; 
-            position: absolute; 
+            content: '✓';
+            position: absolute;
             left: -20px;
             color: var(--color-secondary-gold);
         }
 
         .author-grid h3 {
-            font-family: var(--font-title); 
-            font-size: clamp(1.5rem, 2.5vw, 2rem); 
+            font-family: var(--font-title);
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
             color: var(--color-primary);
         }
-
         .author-grid h4 {
-            font-family: var(--font-title); 
-            font-size: clamp(1.2rem, 2vw, 1.5rem); 
-            color: var(--color-primary); 
+            font-family: var(--font-title);
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            color: var(--color-primary);
             margin-top: 32px;
         }
 
         /* --- Methodology Section --- */
         .methodology-list {
-            display: flex; 
-            flex-direction: column; 
+            display: flex;
+            flex-direction: column;
             gap: 24px;
-            max-width: 900px; 
+            max-width: 900px;
             margin: 0 auto;
         }
         .methodology-item {
-            display: flex; 
-            align-items: flex-start; 
+            display: flex;
+            align-items: flex-start;
             gap: 24px;
-            background-color: var(--bg-glass-medium); 
+            background-color: var(--bg-glass-medium);
             padding: 24px;
-            border-radius: 12px; 
+            border-radius: 12px;
             border-left: 4px solid var(--color-secondary-gold);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .methodology-item:hover {
-            transform: translateX(10px); 
+            transform: translateX(10px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.07);
         }
         .methodology-icon {
-            flex-shrink: 0; 
-            width: 48px; 
-            height: 48px; 
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--color-icon-blue), var(--color-light-blue));
-            display: flex; 
-            align-items: center; 
+            display: flex;
+            align-items: center;
             justify-content: center;
         }
-        .methodology-icon svg { 
-            width: 28px; 
-            height: 28px; 
-            color: var(--color-primary); 
+        .methodology-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--color-primary);
         }
         .methodology-title {
-            font-family: var(--font-title); 
+            font-family: var(--font-title);
             font-size: clamp(1.1rem, 1.5vw, 1.25rem);
-            color: var(--color-primary); 
+            color: var(--color-primary);
             margin-bottom: 8px;
         }
         .methodology-item p {
             font-size: clamp(0.9rem, 1vw, 1rem);
         }
-        
+
+        /* --- Numbered Badge (novo, reutilizando identidade visual) --- */
+        .methodology-number {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-highlight-gold), var(--color-secondary-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-title);
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        /* --- Feature List (100% escrita) --- */
+        .feature-list {
+            list-style: none;
+            margin: 24px 0 8px;
+            padding: 0;
+        }
+        .feature-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 16px;
+            font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+            line-height: 1.7;
+        }
+        .feature-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--color-highlight-gold);
+            font-size: 1.1rem;
+        }
+
         /* --- Bonuses Section --- */
-        .bonuses-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 32px; 
+        .bonuses-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
         }
         .bonus-card {
-            padding: 32px; 
+            padding: 32px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .bonus-card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
+        .bonus-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
-        
+
         /* ═══════════════════════════════════════════════════
            IMAGENS DOS BRINDES - Edite as URLs abaixo
            Dimensão recomendada: 400x400px (quadrada)
@@ -398,117 +434,141 @@
             background-color: var(--color-light-blue);
             overflow: hidden;
         }
-        .bonus-image-wrapper img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
+        .bonus-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
         .bonus-label {
-            display: inline-block; 
-            padding: 6px 16px; 
+            display: inline-block;
+            padding: 6px 16px;
             border-radius: 999px;
             background: linear-gradient(45deg, var(--color-highlight-gold), var(--color-secondary-gold));
-            color: white; 
-            font-weight: 600; 
-            font-size: 0.9rem; 
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
             margin-bottom: 16px;
         }
         .bonus-title {
-            font-family: var(--font-title); 
+            font-family: var(--font-title);
             font-size: clamp(1.2rem, 2vw, 1.5rem);
-            color: var(--color-primary); 
+            color: var(--color-primary);
             margin-bottom: 8px;
         }
         .bonus-subtitle {
-            font-family: var(--font-decorative); 
+            font-family: var(--font-decorative);
             font-style: italic;
-            font-size: clamp(1rem, 1.5vw, 1.2rem); 
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
             color: var(--color-primary);
         }
 
         /* --- Pricing Section --- */
         .pricing-section {
-            max-width: 700px; 
-            margin: 0 auto; 
+            max-width: 700px;
+            margin: 0 auto;
             padding: clamp(2rem, 5vw, 4rem);
             text-align: center;
         }
-        .pricing-subtitle { 
-            font-size: clamp(1rem, 1.2vw, 1.2rem); 
-            color: var(--color-text-light); 
-            margin-bottom: 16px; 
-        }
-        .old-price { 
-            text-decoration: line-through; 
-            opacity: 0.7; 
-        }
-        .new-price {
-            font-family: var(--font-title); 
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 700; 
-            color: var(--color-primary); 
-            line-height: 1; 
+        .pricing-subtitle {
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
+            color: var(--color-text-light);
             margin-bottom: 16px;
         }
-        .new-price span { 
-            font-size: 0.4em; 
-            vertical-align: super; 
-            margin-right: 0.1em; 
+        .old-price { text-decoration: line-through; opacity: 0.7; }
+        .new-price {
+            font-family: var(--font-title);
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: 16px;
         }
-        .payment-note { 
-            font-size: clamp(0.9rem, 1vw, 1rem); 
-            color: var(--color-text-medium); 
-            margin-bottom: 32px; 
+        .new-price span {
+            font-size: 0.4em;
+            vertical-align: super;
+            margin-right: 0.1em;
+        }
+        .payment-note {
+            font-size: clamp(0.9rem, 1vw, 1rem);
+            color: var(--color-text-medium);
+            margin-bottom: 32px;
         }
 
         /* --- Final CTA Section --- */
         .final-cta-section {
-            padding: clamp(2rem, 5vw, 60px); 
+            padding: clamp(2rem, 5vw, 60px);
             background: linear-gradient(135deg, var(--color-primary), var(--color-text-dark));
-            border-radius: 24px; 
-            text-align: center; 
+            border-radius: 24px;
+            text-align: center;
             color: white;
-            position: relative; 
+            position: relative;
             overflow: hidden;
         }
         .final-cta-section p {
             font-size: clamp(0.95rem, 1.2vw, 1.1rem);
         }
-        .final-cta-section .cta-button { 
-            transform: scale(1.1); 
-        }
+        .final-cta-section .cta-button { transform: scale(1.1); }
         .final-cta-quote {
-            font-family: var(--font-decorative); 
-            font-style: italic; 
+            font-family: var(--font-decorative);
+            font-style: italic;
             font-size: clamp(1rem, 1.5vw, 1.2rem);
-            max-width: 50ch; 
-            margin: 40px auto 0; 
+            max-width: 50ch;
+            margin: 40px auto 0;
             opacity: 0.8;
         }
-        .final-cta-signature { 
-            margin-top: 24px; 
-            font-weight: 600; 
+        .final-cta-signature {
+            margin-top: 24px;
+            font-weight: 600;
         }
-        .final-cta-signature span { 
-            display: block; 
-            font-weight: 400; 
-            font-size: 0.9rem; 
-            opacity: 0.8; 
+        .final-cta-signature span {
+            display: block;
+            font-weight: 400;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .final-cta-support {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            opacity: 0.8;
         }
 
         /* --- Footer --- */
-        .footer { 
-            padding: 40px 0; 
-            text-align: center; 
+        .footer {
+            padding: 40px 0;
+            text-align: center;
         }
         .footer-content {
-            display: inline-block; 
-            padding: 12px 24px; 
+            display: inline-block;
+            padding: 12px 24px;
             border-radius: 999px;
             font-size: clamp(0.8rem, 0.9vw, 0.9rem);
         }
         .footer-content b { color: var(--color-secondary-gold); }
+
+        /* --- WhatsApp Floating Button --- */
+        .whatsapp-link {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 1px 1px 2px #888;
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+        .whatsapp-link:hover {
+            transform: scale(1.08);
+            color: #fff;
+        }
+        .whatsapp-link .fa-whatsapp { margin-top: 16px; }
 
         /* ═══════════════════════════════════════════════════
            RESPONSIVIDADE - Media Queries
@@ -516,31 +576,29 @@
 
         /* Tablets e telas médias */
         @media (max-width: 968px) {
-            .hero-grid { 
-                grid-template-columns: 1fr; 
+            .hero-grid {
+                grid-template-columns: 1fr;
                 gap: 30px;
             }
-            .hero-image-wrapper { 
-                margin-bottom: 20px; 
-                order: -1; 
+            .hero-image-wrapper {
+                margin-bottom: 20px;
+                order: -1;
             }
-            .hero-image {
-                max-width: 500px;
-            }
-            .author-grid { 
-                grid-template-columns: 1fr; 
+            .hero-image { max-width: 500px; }
+            .author-grid {
+                grid-template-columns: 1fr;
                 text-align: center;
             }
             .author-photo {
                 max-width: 250px;
                 margin: 0 auto;
             }
-            .author-credentials { 
-                text-align: left; 
-                display: inline-block; 
+            .author-credentials {
+                text-align: left;
+                display: inline-block;
             }
-            .bonuses-grid { 
-                grid-template-columns: 1fr; 
+            .bonuses-grid {
+                grid-template-columns: 1fr;
                 max-width: 400px;
                 margin: 0 auto;
             }
@@ -548,27 +606,17 @@
 
         /* Celulares grandes e tablets pequenos */
         @media (max-width: 768px) {
-            .hero {
-                padding: 20px 0 40px;
-            }
-            .hero-content {
-                padding: 1.5rem;
-            }
-            .header {
-                padding: 24px 0;
-            }
-            .section {
-                padding: 40px 0;
-            }
+            .hero { padding: 20px 0 40px; }
+            .hero-content { padding: 1.5rem; }
+            .header { padding: 24px 0; }
+            .section { padding: 40px 0; }
             .methodology-item {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
                 padding: 20px;
             }
-            .methodology-item:hover {
-                transform: translateY(-5px);
-            }
+            .methodology-item:hover { transform: translateY(-5px); }
             .methodology-icon {
                 width: 40px;
                 height: 40px;
@@ -577,41 +625,34 @@
                 width: 22px;
                 height: 22px;
             }
-            .final-cta-section .cta-button {
-                transform: scale(1);
+            .methodology-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
-            .final-cta-section {
-                padding: 1.5rem;
+            .final-cta-section .cta-button { transform: scale(1); }
+            .final-cta-section { padding: 1.5rem; }
+            .bonus-card { padding: 24px; }
+            .bonus-image-wrapper { max-width: 200px; }
+            .whatsapp-link {
+                width: 54px;
+                height: 54px;
+                bottom: 24px;
+                right: 20px;
+                font-size: 26px;
             }
-            .bonus-card {
-                padding: 24px;
-            }
-            .bonus-image-wrapper {
-                max-width: 200px;
-            }
+            .whatsapp-link .fa-whatsapp { margin-top: 14px; }
         }
 
         /* Celulares pequenos */
         @media (max-width: 480px) {
-            html { 
-                font-size: 14px; 
-            }
-            .container { 
-                padding: 0 16px; 
-            }
-            .glass-panel, 
-            .content-section .glass-panel { 
-                padding: 1.25rem; 
-            }
-            .hero-image {
-                max-width: 340px;
-            }
-            .hero-content {
-                padding: 1.25rem;
-            }
-            .hero-content h2 {
-                font-size: 1.2rem;
-            }
+            html { font-size: 14px; }
+            .container { padding: 0 16px; }
+            .glass-panel,
+            .content-section .glass-panel { padding: 1.25rem; }
+            .hero-image { max-width: 340px; }
+            .hero-content { padding: 1.25rem; }
+            .hero-content h2 { font-size: 1.2rem; }
             .hero-content p {
                 font-size: 0.9rem;
                 margin: 16px 0 24px;
@@ -621,65 +662,36 @@
                 font-size: 0.85rem;
                 width: 100%;
             }
-            .pricing-section {
-                padding: 1.5rem;
-            }
-            .new-price {
-                font-size: 2.2rem;
-            }
-            .author-photo {
-                max-width: 180px;
-            }
-            .author-grid h3 {
-                font-size: 1.3rem;
-            }
+            .pricing-section { padding: 1.5rem; }
+            .new-price { font-size: 2.2rem; }
+            .author-photo { max-width: 180px; }
+            .author-grid h3 { font-size: 1.3rem; }
             .section-title {
                 font-size: 1.4rem;
                 margin-bottom: 32px;
             }
-            .final-cta-section .cta-button {
-                width: 100%;
-            }
+            .final-cta-section .cta-button { width: 100%; }
         }
 
         /* Telas muito pequenas (ex: celulares em modo paisagem) */
         @media (max-height: 600px) and (orientation: landscape) {
-            .hero {
-                padding: 20px 0;
-            }
-            .hero-grid {
-                gap: 20px;
-            }
-            .hero-image {
-                max-width: 300px;
-            }
-            .hero-content {
-                padding: 1rem;
-            }
-            .hero-content p {
-                margin: 12px 0 16px;
-            }
+            .hero { padding: 20px 0; }
+            .hero-grid { gap: 20px; }
+            .hero-image { max-width: 300px; }
+            .hero-content { padding: 1rem; }
+            .hero-content p { margin: 12px 0 16px; }
         }
     </style>
 </head>
 <body>
-    <meta charset="UTF-8" class="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" class="">
-    <title class="">Formação em Libertação da Mente &amp; Cura Interior | Denya Maria</title>
-    <meta name="description" content="Jornada de 40 dias de Renovação da Mente e Reestruturação Cognitivo-Comportamental com a Educadora Cristã Denya Maria." class="">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" class="">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" class="">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" class="">
 
     <header class="header container animate-on-scroll visible">
-        <h1 class="">FORMAÇÃO TÉCNICA EM LIBERTAÇÃO DA MENTE &amp; CURA INTERIOR</h1>
-        <h2 class="">Volume I: Nível Básico ao Intermediário</h2>
-        <h3 class="">Educadora Cristã Cognitivo-Comportamental: Denya Maria</h3>
+        <h1>MAPA DA RENOVAÇÃO DA MENTE - MRM</h1>
+        <h2>Volume I: Alfabetização Espiritual e Reestruturação Cognitiva</h2>
+        <h3>Educadora Cristã Cognitivo-Comportamental: Denya Maria</h3>
     </header>
 
-    <main class="">
+    <main>
         <section id="hero" class="hero">
             <div class="container">
                 <div class="hero-grid">
@@ -687,20 +699,26 @@
                         <!-- ════════════════════════════════════════════════════════════════ -->
                         <!-- IMAGEM DO LIVRO - TAMANHO MÁXIMO para destacar o produto       -->
                         <!-- ════════════════════════════════════════════════════════════════ -->
-                        <img src="https://github.com/marciobignon/Curso-Liberta-o-da-Mente--Cura-Interior/raw/263f1ee0c6ff5a3a29abc4a653664ed89ad42755/livro%20curso%20liberta%C3%A7%C3%A3o%20da%20mente%202.png" alt="Capa do livro Libertação da Mente e a Cura Interior" class="hero-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div style="display:none; padding:60px 20px; background:#2C4A5E; color:white; border-radius:8px; max-width:450px; margin:0 auto; text-align:center;" class="">
-                            <p style="color:white; margin-bottom:10px;" class="">📚</p>
-                            <p style="color:white; font-size:0.9rem;" class="">Imagem do livro não disponível</p>
-                            <p style="color:rgba(255,255,255,0.6); font-size:0.8rem;" class="">Verifique o link da imagem</p>
+                        <img src="https://github.com/marciobignon/Curso-Liberta-o-da-Mente--Cura-Interior/raw/263f1ee0c6ff5a3a29abc4a653664ed89ad42755/livro%20curso%20liberta%C3%A7%C3%A3o%20da%20mente%202.png"
+                             alt="Capa do Mapa da Renovação da Mente - MRM"
+                             class="hero-image"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display:none; padding:60px 20px; background:#2C4A5E; color:white; border-radius:8px; max-width:450px; margin:0 auto; text-align:center;">
+                            <p style="color:white; margin-bottom:10px;">📚</p>
+                            <p style="color:white; font-size:0.9rem;">Imagem do material não disponível</p>
+                            <p style="color:rgba(255,255,255,0.6); font-size:0.8rem;">Verifique o link da imagem</p>
                         </div>
                     </div>
+
                     <div class="hero-content glass-panel animate-on-scroll visible" style="animation-delay: 0.2s;">
-                        <h2 class="">A PROMESSA PRINCIPAL</h2>
-                        <p class="">A CIÊNCIA E A PALAVRA DE DEUS EM SUA LITERALIDADE HARMONIZAM-SE NA MAIOR DESCOBERTA DA HISTÓRIA: <b class="">VOCÊ NÃO PRECISA SER ESCRAVA DOS PADRÕES DE DOR DA SUA MENTE.</b></p>
-                        <p class="">Diga adeus ao caos emocional, cure o pânico invisível e as dores do "mal do século" e assuma o autogoverno do seu córtex pré-frontal através de uma jornada de consagração e prática pedagógica de 40 dias de Renovação da Mente e Reestruturação Cognitivo-Comportamental.</p>
+                        <h2>A PROMESSA PRINCIPAL</h2>
+                        <p>Vou te ensinar a <b>Interpretar a Bíblia</b> para se apropriar da sua <b>cura interior</b>, ter <b>paz e governo mental</b> em apenas <b>15 minutos diários</b> — mesmo que você hoje se sinta travada ou confusa ao ler a Bíblia.</p>
+                        <p>O <b>Mapa da Renovação da Mente</b> é o veículo transformador que te conduzirá diretamente à sua cura interior e renovação da mente.</p>
+                        <p>A Ciência e a Palavra de Deus em sua literalidade harmonizam-se na maior descoberta da história: <b>você não precisa ser escrava dos padrões de dor da sua mente.</b></p>
+                        <p>Diga adeus ao caos emocional, cure os pensamentos disfuncionais e as dores do "mal do século" na era digital. Assuma o protagonismo e o autogoverno do seu córtex pré-frontal através do <b>Mapa da Renovação da Mente e Reestruturação Cognitiva.</b></p>
                         <!-- ══════════════ BOTÃO ADICIONADO AQUI ══════════════ -->
                         <div style="text-align:center; margin-top:24px;">
-                            <a class="cta-button pulse final-cta-button" href="https://pay.kiwify.com.br/5vc7d61">QUERO ADQUIRIR MEU CADERNO DE ATIVAÇÃO</a>
+                            <a class="cta-button pulse final-cta-button" href="https://pay.kiwify.com.br/5vc7d61">QUERO ADQUIRIR MEU MAPA -MRM E INICIAR MEU MEMORIAL DE CURA</a>
                         </div>
                         <!-- ═══════════════════════════════════════════════════ -->
                     </div>
@@ -712,14 +730,14 @@
             <div class="container">
                 <div class="glass-panel animate-on-scroll visible">
                     <h2 class="section-title italic">O Convite da Sua Educadora</h2>
-                    <p class=""><b class="">Querida irmã,</b></p>
-                    <p class="">Se você chegou até esta página, não foi por acaso ou por um algoritmo digital instável. O seu coração está faminto por algo muito mais profundo: <i class="">bem-estar real, cura interior, autocuidado espiritual e a plenitude do design original que Deus desenhou para você.</i></p>
-                    <p class="">Eu quero lhe dizer, com a certeza de quem estuda a biologia humana e vive o poder do Logos (Palavra de Deus): a sua transformação definitiva é possível.</p>
-                    <p class="">A metamorfose que você tanto busca não acontece por meio de fórmulas mágicas, desabafos emocionais rasos ou leituras superficiais. Ela acontece pela renovação ativa da mente, conforme o apóstolo Paulo nos instruiu em Romanos 12:2:</p>
+                    <p><b>Querida irmã,</b></p>
+                    <p>Se você chegou até esta página, não foi por acaso ou por um algoritmo digital instável. O seu coração está faminto por algo muito mais profundo do que apenas bem-estar. Deus tem para você <i>cura interior e a plenitude do design original que Ele desenhou para a sua vida.</i></p>
+                    <p>Eu quero te dizer, com a certeza de quem estuda a biologia humana e vive o poder do Logos (a Palavra de Deus): a sua transformação definitiva é possível.</p>
+                    <p>A metamorfose que você busca não acontece por meio de fórmulas mágicas, desabafos emocionais rasos ou conteúdos superficiais. Ela acontece pela renovação ativa da mente, conforme o apóstolo Paulo nos instruiu em Romanos 12:2:</p>
                     <div class="highlight-block">
-                        <p class=""><i class="">"E não vos conformeis com este mundo, mas transformai-vos pela renovação da vossa mente, para que experimenteis qual seja a boa, agradável e perfeita vontade de Deus."</i></p>
+                        <p><i>"E não vos conformeis com este mundo, mas transformai-vos pela renovação da vossa mente, para que experimenteis qual seja a boa, agradável e perfeita vontade de Deus."</i></p>
                     </div>
-                    <p class="">O alicerce inabalável desta Formação é a Palavra de Deus literal. Aqui, não trabalhamos com achismos, misticismo, heresias ou interpretações subjetivas. Olhamos para o texto sagrado em sua literalidade factual e gramatical para aplicar o Autoevangelho: a verdade de Jesus direcionada com técnica, rigor científico e intenção cirúrgica à sua própria biologia e história, transformando o desejo de mudança em realidade cognitiva.</p>
+                    <p>O alicerce inabalável desta Formação é a Palavra de Deus literal. Aqui, não trabalhamos com achismos, misticismo ou interpretações subjetivas. Olhamos para o texto sagrado em sua literalidade factual para aplicar o Autoevangelho: a verdade de Jesus direcionada com técnica, rigor científico e intenção cirúrgica à sua própria história, transformando o desejo de mudança em realidade cognitiva.</p>
                 </div>
             </div>
         </section>
@@ -733,18 +751,19 @@
                         <!-- FOTO DA AUTORA - Substitua a URL abaixo -->
                         <!-- ════════════════════════════════════════ -->
                         <img src="https://github.com/marciobignon/Curso-Liberta-o-da-Mente--Cura-Interior/blob/main/denya_maria.png?raw=true" alt="Foto de Denya Maria" class="author-photo">
-                        <div class="">
-                            <h3 class="">Muito prazer, eu sou Denya Maria.</h3>
-                            <p class="">Este método é o resultado factual da minha própria história de superação e dos meus 51 anos de vida. Para construí-lo, uni três décadas de experiência prática no setor de bem-estar e estética integrativa às minhas formações e caminhada:</p>
+                        <div>
+                            <h3>Muito prazer, eu sou Denya Maria.</h3>
+                            <p>Este Método - MRM é o resultado factual da minha própria história de superação e dos meus 51 anos de vida. Para construí-lo, uni três décadas de experiência prática no setor de bem-estar e estética integrativa às minhas formações e caminhada:</p>
                             <ul class="author-credentials">
-                                <li class=""><b class="">Graduada em Letras:</b> O poder da palavra escrita e da concordância cognitiva.</li>
-                                <li class=""><b class="">Teóloga de Exegese e Hermenêutica:</b> A profundidade e a precisão do texto literal.</li>
-                                <li class=""><b class="">Biomédica em Formação:</b> A ciência das vias neurais, do cérebro e da biologia humana.</li>
-                                <li class=""><b class="">17 anos de caminhada com Deus</b> no altar e na palavra literal.</li>
+                                <li><b>Graduada em Letras:</b> O poder da palavra escrita, da concordância cognitiva e da didática reflexiva.</li>
+                                <li><b>Teóloga em Exegese e Hermenêutica:</b> A profundidade e a precisão do texto bíblico em seu sentido literal.</li>
+                                <li><b>Biomédica em Formação:</b> A ciência das vias neurais, do cérebro e da biologia humana.</li>
+                                <li><b>17 anos de caminhada com Deus</b> no altar e na Palavra literal.</li>
                             </ul>
-                            <h4 class="">Eu já estive na beira do caminho...</h4>
-                            <p class="">Há 17 anos, eu mesma fui liberta de diversos tipos de pânico e transtornos emocionais graves. Minha psicóloga da época chegou a me diagnosticar com o "pânico da paz" — tamanho era o meu nível de alerta, inflamação, perturbação interior e desordem emocional crônica.</p>
-                            <p class="">Mas a Palavra me refez de forma factual. Hoje, curada para consolar com a mesma consolação que recebi de Cristo, eu sei que a libertação não é um evento místico isolado ou mágico, mas sim um processo educativo. Um passo a passo intencional e consciente na construção do seu alicerce de paz.</p>
+                            <h4>Eu já estive na beira do caminho...</h4>
+                            <p>Há 17 anos, eu mesma fui liberta de diversos tipos de pânico e transtornos emocionais graves. Minha psicóloga da época chegou a me diagnosticar com o "pânico da paz" — tamanho era o meu nível de alerta, perturbação interior e desordem emocional crônica.</p>
+                            <p>Durante esses 17 anos na minha caminhada com Deus, a <b>Escrita Didática Reflexiva</b> foi meu refúgio: eu escrevia para não enlouquecer. Esse foi o método prático que o próprio Deus me deu e foi aprimorando ao longo do tempo, para que hoje eu pudesse entregar pronto, testado e estruturado nas suas mãos.</p>
+                            <p>Hoje, curada para consolar com a mesma consolação que recebi de Cristo, eu sei que a libertação não é um evento místico isolado, mas sim um processo educativo — um passo a passo consciente na construção do seu alicerce de paz.</p>
                         </div>
                     </div>
                 </div>
@@ -755,90 +774,188 @@
             <div class="container">
                 <div class="glass-panel animate-on-scroll visible">
                     <p class="section-subtitle">O PROTOCOLO DOS 40 DIAS</p>
-                    <h2 class="section-title">A Sua Jornada de Alfabetização Emocional</h2>
-                    <p class="">Este primeiro volume compreende o seu ciclo de Alfabetização Emocional. Assim como Jesus venceu o deserto em 40 dias, você passará por um período intensivo de consagração, desintoxicação mental e reeducação da alma.</p>
-                    <p class="">Este é o tempo biológico, cognitivo e espiritual necessário para desconstruir fortalezas emocionais, quebrar paradigmas limitantes e estabelecer novos caminhos neurais de paz.</p>
-                    <p class="">Dedicando apenas alguns minutos diários no secreto com o Pai, meditando na literalidade das Escrituras e aplicando os exercícios, você sairá da passividade para assumir a autoria da sua própria mente.</p>
+                    <h2 class="section-title">A Sua Jornada de Alfabetização Espiritual e Reestruturação Cognitiva</h2>
+                    <p>Este primeiro volume do <b>Mapa da Renovação da Mente - MRM</b> compreende o seu ciclo de Alfabetização Espiritual e Reestruturação Cognitiva. Assim como Jesus venceu o deserto em 40 dias, você passará por um período de consagração, desintoxicação mental e reeducação da alma.</p>
+                    <p>Este é o tempo biológico, cognitivo e espiritual necessário para desconstruir fortalezas emocionais, quebrar paradigmas limitantes e estabelecer novos caminhos neurais de paz.</p>
+                    <p>Dedicando apenas alguns minutos diários no secreto com o Pai, meditando no <b>Mapa de Ativação 6D</b> em forma de aulas/devocionais e aplicando os exercícios manuais, você sairá da passividade para assumir o protagonismo da sua história e construir o seu <b>Memorial de Cura</b>.</p>
                     <!-- ══════════════ BOTÃO ADICIONADO AQUI ══════════════ -->
                     <div style="text-align:center; margin-top:24px;">
-                        <a class="cta-button pulse final-cta-button" href="https://pay.kiwify.com.br/5vc7d61">QUERO ADQUIRIR MEU CADERNO DE ATIVAÇÃO</a>
+                        <a class="cta-button pulse final-cta-button" href="https://pay.kiwify.com.br/5vc7d61">QUERO ADQUIRIR MEU MAPA -MRM E INICIAR MEU MEMORIAL DE CURA</a>
                     </div>
                     <!-- ═══════════════════════════════════════════════════ -->
                 </div>
             </div>
         </section>
-        
+
+        <section id="escrita" class="section content-section">
+            <div class="container">
+                <div class="glass-panel animate-on-scroll visible">
+                    <p class="section-subtitle">O FORMATO GUIADO SEM TELAS</p>
+                    <h2 class="section-title">Por que esta Formação é 100% Escrita?</h2>
+                    <p>Diferente dos cursos tradicionais em vídeo que te mantêm passiva e presa ao estímulo contínuo das telas, o <b>Volume I</b> foi desenhado intencionalmente em formato de leitura e escrita guiada:</p>
+                    <ul class="feature-list">
+                        <li><b>Desaceleração do Estresse Digital:</b> Desativa o estado de alerta e a hipervigilância causados pelas luzes das telas.</li>
+                        <li><b>Leitura Ativa e Foco Profundo:</b> Obriga a mente a processar e absorver a verdade bíblica no seu próprio ritmo.</li>
+                        <li><b>Protagonismo Real:</b> Tira você do papel de espectadora e te coloca no centro do seu processo de libertação.</li>
+                        <li><b>Neuroplasticidade Manual:</b> O ato de escrever no papel ativa áreas de memória e aprendizado do cérebro que a digitação ou o vídeo não alcançam, desarmando a amígdala cerebral (o centro do medo e da ansiedade).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section id="metodologia" class="section">
             <div class="container">
                 <p class="section-subtitle animate-on-scroll visible">A METODOLOGIA DA FORMAÇÃO</p>
-                <h2 class="section-title animate-on-scroll visible">Como a Transformação Acontece</h2>
+                <h2 class="section-title animate-on-scroll visible">O Mapa da Renovação da Mente</h2>
+                <p class="section-subtitle animate-on-scroll visible" style="margin-bottom: 40px;">Sua jornada é estruturada em 6 Dimensões de Cura</p>
+
                 <div class="methodology-list">
+
+                    <div class="methodology-item animate-on-scroll visible">
+                        <div class="methodology-number">1</div>
+                        <div>
+                            <h3 class="methodology-title">Dimensão da Verdade (Exegese &amp; Texto Bíblico)</h3>
+                            <p>O alinhamento da mente com a Palavra no sentido literal.</p>
+                        </div>
+                    </div>
+
+                    <div class="methodology-item animate-on-scroll visible" style="animation-delay: 0.1s;">
+                        <div class="methodology-number">2</div>
+                        <div>
+                            <h3 class="methodology-title">Dimensão da Consciência (Identificar a Dor)</h3>
+                            <p>A coragem de encarar a emoção e a dor disfuncional sem negação.</p>
+                        </div>
+                    </div>
+
+                    <div class="methodology-item animate-on-scroll visible" style="animation-delay: 0.2s;">
+                        <div class="methodology-number">3</div>
+                        <div>
+                            <h3 class="methodology-title">Dimensão da Reestruturação (Substituição Cognitiva)</h3>
+                            <p>A troca da mentira da dor pela verdade libertadora.</p>
+                        </div>
+                    </div>
+
+                    <div class="methodology-item animate-on-scroll visible" style="animation-delay: 0.3s;">
+                        <div class="methodology-number">4</div>
+                        <div>
+                            <h3 class="methodology-title">Dimensão da Fixação (Escrita Didática Reflexiva)</h3>
+                            <p>A neuroplasticidade em ação, onde você assume o protagonismo e registra a sua nova história.</p>
+                        </div>
+                    </div>
+
+                    <div class="methodology-item animate-on-scroll visible" style="animation-delay: 0.4s;">
+                        <div class="methodology-number">5</div>
+                        <div>
+                            <h3 class="methodology-title">Dimensão do Posicionamento (Oração de Apropriação)</h3>
+                            <p>A tomada de autoridade e governo espiritual sobre a própria vida.</p>
+                        </div>
+                    </div>
+
+                    <div class="methodology-item animate-on-scroll visible" style="animation-delay: 0.5s;">
+                        <div class="methodology-number">6</div>
+                        <div>
+                            <h3 class="methodology-title">Dimensão da Reprogramação (Audição Cognitiva &amp; Meditação)</h3>
+                            <p>A consolidação neural através do ouvir a própria voz e recitar a verdade.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="objetivo" class="section content-section">
+            <div class="container">
+                <div class="glass-panel animate-on-scroll visible">
+                    <p class="section-subtitle">O PROPÓSITO DO MÉTODO</p>
+                    <h2 class="section-title">Qual é o Objetivo do Mapa da Renovação da Mente - MRM?</h2>
+                    <ul class="feature-list">
+                        <li><b>Identificar Padrões:</b> Olhar para a sua história de fora (como quem vê um mapa do alto) ajuda a entender a origem exata de traumas, medos e comportamentos repetitivos disfuncionais.</li>
+                        <li><b>Localizar as "Feridas":</b> Ajuda a mapear com clareza quais áreas da sua vida (família, relacionamentos, traumas do passado) precisam de mais atenção, perdão ou cuidado cirúrgico.</li>
+                        <li><b>Traçar Novas Rotas:</b> Ao enxergar com clareza onde você está, por onde passou e conhecer as rotas que precisa passar, fica mais fácil desenhar vias neurais saudáveis e um futuro alinhado ao propósito de Deus.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="material" class="section">
+            <div class="container">
+                <p class="section-subtitle animate-on-scroll visible">O SEU MATERIAL DIDÁTICO</p>
+                <h2 class="section-title animate-on-scroll visible">O Que Você Encontrará no Seu Material</h2>
+
+                <div class="methodology-list">
+
                     <div class="methodology-item animate-on-scroll visible">
                         <div class="methodology-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" class=""></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
                             </svg>
                         </div>
-                        <div class="">
-                            <h3 class="methodology-title">Aulas Profundas em Forma de Devocionais</h3>
-                            <p class="">Conteúdos pedagógicos diários escritos em linguagem acolhedora para desarmar o medo e ativar sua real identidade.</p>
+                        <div>
+                            <h3 class="methodology-title">40 Aulas Profundas em Forma de Devocionais</h3>
+                            <p>Conteúdos diários de orientação pedagógica escritos em linguagem acolhedora para desarmar o medo e ativar sua real identidade.</p>
                         </div>
                     </div>
+
                     <div class="methodology-item animate-on-scroll visible" style="animation-delay: 0.1s;">
                         <div class="methodology-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" class=""></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/>
                             </svg>
                         </div>
-                        <div class="">
-                            <h3 class="methodology-title">Fundamentação Bíblica + Reestruturação Cognitiva</h3>
-                            <p class="">A fusão perfeita entre a neuroplasticidade científica e a verdade factual das Escrituras Sagradas para remodelar pensamentos disfuncionais.</p>
+                        <div>
+                            <h3 class="methodology-title">40 Fundamentações Bíblicas + Reestruturação Cognitiva</h3>
+                            <p>A fusão entre a neuroplasticidade e a verdade factual das Escrituras Sagradas para remodelar pensamentos disfuncionais.</p>
                         </div>
                     </div>
+
                     <div class="methodology-item animate-on-scroll visible" style="animation-delay: 0.2s;">
                         <div class="methodology-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" class=""></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/>
                             </svg>
                         </div>
-                        <div class="">
-                            <h3 class="methodology-title">Exercício "Arrumando a Bagunça"</h3>
-                            <p class="">Uma ferramenta cirúrgica para identificar mentiras e registros antigos e substituí-los por decretos de autoridade baseados na Verdade.</p>
+                        <div>
+                            <h3 class="methodology-title">40 Exercícios "Arrumando a Bagunça"</h3>
+                            <p>Uma ferramenta cirúrgica para identificar registros mentais antigos e substituí-los por decretos específicos de autoridade divina.</p>
                         </div>
                     </div>
+
                     <div class="methodology-item animate-on-scroll visible" style="animation-delay: 0.3s;">
                         <div class="methodology-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z" class=""></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z"/>
                             </svg>
                         </div>
-                        <div class="">
-                            <h3 class="methodology-title">Escrita Pedagógica e Manual</h3>
-                            <p class="">O ato científico de registrar seus pensamentos no papel, ativando áreas cerebrais de aprendizado e memória que as telas jamais alcançarão.</p>
+                        <div>
+                            <h3 class="methodology-title">40 Comandos de Escrita Didática Reflexiva e Manual</h3>
+                            <p>O ato de registrar seus pensamentos no papel para construir o seu Memorial de Cura e trazer o governo de Deus para o seu córtex pré-frontal.</p>
                         </div>
                     </div>
+
                     <div class="methodology-item animate-on-scroll visible" style="animation-delay: 0.4s;">
                         <div class="methodology-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" class=""></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"/>
                             </svg>
                         </div>
-                        <div class="">
-                            <h3 class="methodology-title">Audição Cognitiva</h3>
-                            <p class="">Uma técnica exclusiva de biofeedback espiritual. Ao ler seus exercícios em voz alta, você utiliza a sua própria voz para selar a cura no seu sistema límbico.</p>
+                        <div>
+                            <h3 class="methodology-title">40 Comandos de Audição Cognitiva</h3>
+                            <p>Uma técnica exclusiva de biofeedback espiritual. Ao ler seus exercícios em voz alta, você utiliza a frequência da sua própria voz para selar a cura no seu sistema emocional e límbico.</p>
                         </div>
                     </div>
+
                     <div class="methodology-item animate-on-scroll visible" style="animation-delay: 0.5s;">
                         <div class="methodology-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" class=""></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
                         </div>
-                        <div class="">
-                            <h3 class="methodology-title">Orações Específicas de Posicionamento</h3>
-                            <p class="">Decretos e alinhamentos espirituais para firmar sua posição de filha amada e governante do seu território mental.</p>
+                        <div>
+                            <h3 class="methodology-title">40 Orações Específicas de Posicionamento e Apropriação</h3>
+                            <p>Alinhamentos espirituais e decretos para firmar sua posição de filha amada e governante do seu território mental.</p>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -848,22 +965,25 @@
                 <h2 class="section-title italic animate-on-scroll visible">Brindes Exclusivos</h2>
                 <div class="divider" style="margin-bottom: 48px;"></div>
                 <div class="bonuses-grid">
+
                     <div class="bonus-card glass-panel animate-on-scroll visible" style="animation-delay: 0.1s;">
                         <div class="bonus-image-wrapper">
-                            <img src="https://github.com/marciobignon/Curso-Liberta-o-da-Mente--Cura-Interior/blob/main/cart%C3%A3o%20ora%C3%A7%C3%A3o%20-%20curso%20liberta%C3%A7%C3%A3o%20da%20mente.jpg?raw=true" alt="Cartões de Orações" class="">
+                            <img src="https://github.com/marciobignon/Curso-Liberta-o-da-Mente--Cura-Interior/blob/main/cart%C3%A3o%20ora%C3%A7%C3%A3o%20-%20curso%20liberta%C3%A7%C3%A3o%20da%20mente.jpg?raw=true" alt="Cartões de Orações">
                         </div>
                         <div class="bonus-label">🃏 Cards de oração</div>
                         <h3 class="bonus-title">15 Cartões de Orações</h3>
                         <p class="bonus-subtitle">Para seu crescimento Espiritual — imprimir</p>
                     </div>
+
                     <div class="bonus-card glass-panel animate-on-scroll visible" style="animation-delay: 0.2s;">
                         <div class="bonus-image-wrapper">
-                            <img src="https://github.com/marciobignon/Curso-Liberta-o-da-Mente--Cura-Interior/blob/main/marcador%20-%20curso%20liberta%C3%A7%C3%A3o%20da%20mente.jpg?raw=true" alt="Marcador de Bíblia" class="">
+                            <img src="https://github.com/marciobignon/Curso-Liberta-o-da-Mente--Cura-Interior/blob/main/marcador%20-%20curso%20liberta%C3%A7%C3%A3o%20da%20mente.jpg?raw=true" alt="Marcador de Bíblia">
                         </div>
                         <div class="bonus-label">🔖 Marcador</div>
                         <h3 class="bonus-title">Marcador de Bíblia</h3>
                         <p class="bonus-subtitle">Para inspirar sua leitura — imprimir</p>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -872,15 +992,10 @@
             <div class="container">
                 <div class="pricing-section glass-panel animate-on-scroll visible">
                     <h2 class="section-title italic">Garanta o seu Acesso Imediato</h2>
-                    <!-- ══════════════ PROMOÇÃO POR TEMPO LIMITADO ══════════════ -->
-                    <p style="text-align: center; font-family: var(--font-body); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--color-secondary-gold); margin-bottom: 8px; font-size: clamp(0.8rem, 1vw, 1rem);">
-                        Promoção por tempo limitado
-                    </p>
-                    <!-- ════════════════════════════════════════════════════════ -->
                     <div class="divider"></div>
                     <p class="pricing-subtitle">De <span class="old-price">R$ 197,00</span> por apenas:</p>
                     <div class="new-price">
-                        <span class="">R$</span> 67,00
+                        <span>R$</span> 67,00
                     </div>
                     <p class="payment-note">Pagamento único via PIX ou Cartão de Crédito à vista ou parcelado</p>
                 </div>
@@ -890,57 +1005,29 @@
         <section id="comprar" class="section">
             <div class="container">
                 <div class="final-cta-section animate-on-scroll visible">
-                    <p class="">O seu período de 40 dias começa agora. Não adie mais a sua paz.</p>
-                    <p style="max-width: 60ch; margin: 1rem auto 2rem;" class="">Este não é apenas um caderno de leitura passiva; é a sua Formação Técnica para a liberdade onde você é ativa e protagonista de seu próprio memorial. Tenha sempre em mãos a sua Bíblia, o seu manual, caderno e sua caneta.</p>
+                    <p>O seu período de 40 dias começa agora. Não adie mais a sua paz.</p>
+                    <p style="max-width: 60ch; margin: 1rem auto 2rem;">Este não é apenas um material de leitura passiva; é a sua Formação Técnica para a liberdade, onde você é ativa e protagonista de seu próprio memorial. Tenha sempre em mãos a sua Bíblia, o seu manual, caderno e sua caneta.</p>
                     <a class="cta-button pulse final-cta-button" href="https://pay.kiwify.com.br/5vc7d61">QUERO ADQUIRIR MEU CADERNO DE ATIVAÇÃO</a>
                     <p class="final-cta-quote">"A glória de Deus é ocultar um assunto, mas a glória dos reis é investigar esse assunto." — Provérbios 25:2 (NAA)</p>
-                    <p class="final-cta-signature">Vamos juntas, em nome de Jesus!<br class=""><span class="">Denya Maria, Educadora Cristã </span></p>
-<br class=""><span class="">Suporte Whatsapp 22 99710-7087 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	<title>Botão WhatsApp - Canal TI</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-	<style>
-		.whatsapp-link {
-			position: fixed;
-			width: 60px;
-			height: 60px;
-			bottom: 40px;
-			right: 40px;
-			background-color: #25d366;
-			color: #fff;
-			border-radius: 50px;
-			text-align: center;
-			font-size: 30px;
-			box-shadow: 1px 1px 2px #888;
-			z-index: 1000;
-		}
-
-		.fa-whatsapp {
-			margin-top: 16px;
-		}
-	</style>
-</head>
-<body>
-	<a class="whatsapp-link" href="https://web.whatsapp.com/send?phone=5522997107087 " target="_blank">
-		<i class="fa fa-whatsapp"></i>
-	</a>
-</body>
-</html></span></p>
+                    <p class="final-cta-signature">Vamos juntas, em nome de Jesus!<br><span>Denya Maria, Educadora Cristã</span></p>
+                    <p class="final-cta-support">Suporte Whatsapp 22 99710-7087</p>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
         <div class="container">
             <div class="footer-content glass-panel">
-                <span class="">© 2026 <b class="">Denya Maria</b> • Todos os direitos reservados</span>
+                <span>© 2026 <b>Denya Maria</b> • Todos os direitos reservados</span>
             </div>
         </div>
     </footer>
+
+    <!-- ══════════════ BOTÃO FLUTUANTE DO WHATSAPP ══════════════ -->
+    <a class="whatsapp-link" href="https://web.whatsapp.com/send?phone=5522997107087" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+        <i class="fa fa-whatsapp"></i>
+    </a>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
